@@ -1,0 +1,101 @@
+<template name="accountBalanceComponent">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4>Account Balance</h4>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Balance[ether]</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each accounts}}
+          {{> accountBalanceItem}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<template name="accountBalanceItem">
+  <tr>
+    <td>{{name}}</td>
+    <td>{{address}}</td>
+    <td>{{balance}}</td>
+  </tr>
+</template>
+
+<template name="blockStatusComponent">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Recent Block Status</h4>
+    </div>
+    <table class="table">
+      <tbody>
+          <tr>
+            <th scope="row">Search Block</th>
+            <td>
+                {{latestBlockNum}}
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Block Hash</th>
+            <td>{{latestBlockHash}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Miner</th>
+            <td>{{latestBlockMiner}}</td>
+          </tr>
+      <!--    <tr>
+            <th scope="row">Mined Datetime</th>
+            <td>{{latestBlockDatetime}}</td>
+          </tr> -->
+	  <tr>
+            <th scope="row">Block Size</th>
+            <td>{{blockSize}}</td>
+          </tr>
+	  <tr>
+	    <th scope="row">Transactions</th>
+	    <td>
+		{{#if checks}}
+                  {{transactions}}
+		{{else}}
+		  Empty!!
+		{{/if}}
+	    </td>
+	  </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<template name="nodeStatusComponent">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Node Status</h4>
+    </div>
+    <table class="table">
+      <tbody>
+          <tr>
+            <th scope="row">Node</th>
+            <td>{{currentProvider}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Is Mining?</th>
+            <td>{{isMining}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Hashrate</th>
+            <td>{{currentHashrate}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Peer Count</th>
+            <td>{{currentPeerCount}}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
